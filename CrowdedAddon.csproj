@@ -7,12 +7,12 @@
         <langVersion>latest</langVersion>
         <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
         <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
-        <RootNamespace>SampleRoleAddon</RootNamespace>
+        <RootNamespace>CrowdedAddon</RootNamespace>
     </PropertyGroup>
     
     <PropertyGroup>
         <!-- Replace this with your Among Us Directory \/\/\/ -->
-        <AmongUsDirectory>D:\Games\AmongUs\steam\Lotus</AmongUsDirectory>
+        <AmongUsDirectory>C:\Users\Smili\OneDrive\Desktop\Project Lotus</AmongUsDirectory>
     </PropertyGroup>
 
     <ItemGroup>
