@@ -19,19 +19,9 @@ public class CrowdedAddon: LotusAddon
     private Harmony harmony;
     public override void Initialize()
     {
-        /*
-        // Create instances first
-        List<CustomRole> allRoles = new List<CustomRole>() {};
-
-        // Add your role to the gamemmode of your choice (Standard in this case.)
-        allRoles.ForEach(StandardRoles.AddRole);
-
-        // Register roles
-        ExportCustomRoles(allRoles, typeof(StandardGameMode));
-        
-        // Export gamemode
-        ExportGameModes(new List<IGameMode>() {});
-        _ = new BombTagOptionHolder();*/
+        NormalGameOptionsV09.RecommendedImpostors = NormalGameOptionsV09.MaxImpostors = Enumerable.Repeat(128, 128).ToArray();
+        NormalGameOptionsV09.MinPlayers = Enumerable.Repeat(4, 128).ToArray();
+        HideNSeekGameOptionsV09.MinPlayers = Enumerable.Repeat(4, 128).ToArray();
         
         harmony = new Harmony("com.citriondragon.crowdedaddon");
         harmony.PatchAll(Assembly.GetExecutingAssembly());
