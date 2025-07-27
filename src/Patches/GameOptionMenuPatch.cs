@@ -35,8 +35,6 @@ public static class NumberOptionPatch
     [HarmonyPrefix]
     private static bool InitializePrefix(NumberOption __instance)
     {
-        NormalGameOptionsV09.MinPlayers = Enumerable.Repeat(4, 128).ToArray();
-        HideNSeekGameOptionsV09.MinPlayers = Enumerable.Repeat(4, 128).ToArray();
         switch (__instance.Title)
         {
             case StringNames.GameNumImpostors:
@@ -47,68 +45,9 @@ public static class NumberOptionPatch
                 __instance.ValidRange = new(4, 127);
                 break;
         }
-        /*
-        if (ModGameOptionsMenu.OptionList.TryGetValue(__instance, out int index))
-        {
-            OptionItem item = OptionItem.AllOptions[index];
-            __instance.TitleText.text = item.GetName();
-            item.OptionBehaviour = __instance;
-            return false;
-        }*/
-
         return true;
     }
-    /*
-    [HarmonyPatch(nameof(NumberOption.UpdateValue))]
-    [HarmonyPrefix]
-    private static bool UpdateValuePrefix(NumberOption __instance)
-    {
-        if (ModGameOptionsMenu.OptionList.TryGetValue(__instance, out int index))
-        {
-            OptionItem item = OptionItem.AllOptions[index];
 
-            switch (item)
-            {
-                case IntegerOptionItem integerOptionItem:
-                    integerOptionItem.SetValue(integerOptionItem.Rule.GetNearestIndex(__instance.GetInt()));
-                    break;
-            }
-            return false;
-        }
-
-        return true;
-    }
-    */
-    /*
-    [HarmonyPatch(nameof(NumberOption.FixedUpdate))]
-    [HarmonyPrefix]
-    private static bool FixedUpdatePrefix(NumberOption __instance)
-    {
-        if (ModGameOptionsMenu.OptionList.TryGetValue(__instance, out int index))
-        {
-            __instance.MinusBtn.SetInteractable(true);
-            __instance.PlusBtn.SetInteractable(true);
-
-            if (!Mathf.Approximately(__instance.oldValue, __instance.Value))
-            {
-                __instance.oldValue = __instance.Value;
-                __instance.ValueText.text = GetValueString(__instance, __instance.Value, OptionItem.AllOptions[index]);
-            }
-
-            return false;
-        }
-
-        return true;
-    }
-    */
-    /*
-    private static string GetValueString(NumberOption __instance, float value, OptionItem item)
-    {
-        if (__instance.ZeroIsInfinity && Mathf.Abs(value) < 0.0001f) return "<b>∞</b>";
-
-        return item == null ? value.ToString(__instance.FormatString) : item.GetString();
-    }
-*/
     [HarmonyPatch(nameof(NumberOption.Increase))]
     [HarmonyPrefix]
     public static bool IncreasePrefix(NumberOption __instance)
