@@ -12,7 +12,7 @@
     
     <PropertyGroup>
         <!-- Replace this with your Among Us Directory \/\/\/ -->
-        <AmongUsDirectory>C:\Users\Smili\OneDrive\Desktop\Project Lotus</AmongUsDirectory>
+        <AmongUsDirectory>C:\repos\AU\AU-Lotus</AmongUsDirectory>
     </PropertyGroup>
 
     <ItemGroup>
