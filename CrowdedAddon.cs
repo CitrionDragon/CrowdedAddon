@@ -26,6 +26,10 @@ public class CrowdedAddon: LotusAddon
         
         harmony = new Harmony("com.citriondragon.crowdedaddon");
         harmony.PatchAll(Assembly.GetExecutingAssembly());
+        
+        ClassInjector.RegisterTypeInIl2Cpp<MeetingHudPagingBehaviour>();
+        ClassInjector.RegisterTypeInIl2Cpp<ShapeShifterPagingBehaviour>();
+        ClassInjector.RegisterTypeInIl2Cpp<VitalsPagingBehaviour>();
     }
 
     public override string Name { get; } = "Crowded Addon";
